@@ -6,3 +6,18 @@
 <h3> <a href="/lists">Lists</a></h3>
 
 
+
+<% if (!it.lists) { %>
+
+<h4>No shopping lists yet.</h4>
+
+<% } else { %>
+
+
+<ul>
+  <li>Shoping lists: <%= it.lists %></li>
+   <li>Shoping list iteams: <%= it.iteams %> </li>
+</ul>
+
+
+<% } %>
