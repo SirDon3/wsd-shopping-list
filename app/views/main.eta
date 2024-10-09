@@ -1,0 +1,8 @@
+<% layout("./layouts/layout.eta") %>
+
+<center><h1>Main page</h1></center>
+
+
+<h3> <a href="/lists">Lists</a></h3>
+
+
