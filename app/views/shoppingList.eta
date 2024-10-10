@@ -1,0 +1,36 @@
+<% layout("./layouts/layout.eta") %>
+
+<center><h1> <a href="/lists">Shopping lists</a></h1></center>
+
+
+<h2><%= it.list.name %></h2>
+
+<br>
+
+<h3>Add a shopping list item </h2>
+<br>
+<form action="/lists/<%= it.list.id %>/items" method="POST">
+  Name: <input type="text" name="name" />
+  <br>
+  <input type="submit" value="Add item" />
+</form>
+<br>
+<h3>Exisiting list items</h2>
+
+<% if (it.items == 0 ) { %>
+
+<h5>No items in the lists yet.</h5>
+
+<% } else { %>
+
+
+<ul>
+<% it.items.forEach((item) => { %>
+  <li>
+   <%= item.name %>
+  </li>
+<% }); %>
+</ul>
+
+
+<% } %>

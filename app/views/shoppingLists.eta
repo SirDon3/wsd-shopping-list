@@ -5,13 +5,15 @@
 <h2>Shoping lists</h1>
 
 <h3>Add a shopping list</h2>
-
-<form method="POST">
+<br>
+<form action="/lists" method="POST">
   Name: <input type="text" name="name" />
-  <input type="submit" value="Create task!" />
+  <br>
+  <input type="submit" value="Create shopping list!" />
 </form>
-
+<br>
 <h3>Active shoping lists</h2>
+<br>
 
 <ul>
 <% it.lists.forEach((list) => { %>

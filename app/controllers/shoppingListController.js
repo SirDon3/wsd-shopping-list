@@ -1,6 +1,7 @@
 import { renderFile } from "https://deno.land/x/eta@v2.2.0/mod.ts";
 import * as requestUtils from "../utils/requestUtils.js";
 import * as shoppingListService from "../services/shoppingListService.js";
+import * as ShoppingListItemService from "../services/ShoppingListItemService.js";
 
 const responseDetails = {
   headers: { "Content-Type": "text/html;charset=UTF-8" },
@@ -21,7 +22,21 @@ const viewLists = async (request) => {
   };
 
   return new Response(
-    await renderFile("../app/views/lists.eta", data),
+    await renderFile("../app/views/shoppingLists.eta", data),
+    responseDetails,
+  );
+};
+
+const viewList = async (request) => {
+  const url = new URL(request.url);
+  const urlParts = url.pathname.split("/");
+  const data = {
+    items: await ShoppingListItemService.findShoppingListIteams(urlParts[2]),
+    list: await shoppingListService.findShoppingList(urlParts[2]),
+  };
+
+  return new Response(
+    await renderFile("../app/views/shoppingList.eta", data),
     responseDetails,
   );
 };
@@ -34,4 +49,4 @@ const deactivateList = async (request) => {
   return await requestUtils.redirectTo("/lists");
 };
 
-export { addList, deactivateList, viewLists };
+export { addList, deactivateList, viewList, viewLists };
