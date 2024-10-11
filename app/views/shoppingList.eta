@@ -1,5 +1,7 @@
 <% layout("./layouts/layout.eta") %>
 
+<div class="nes-container is-rounded" >
+
 <center><h1> <a href="/lists">Shopping lists</a></h1></center>
 
 
@@ -8,29 +10,52 @@
 <br>
 
 <h3>Add a shopping list item </h2>
+
 <br>
+
 <form action="/lists/<%= it.list.id %>/items" method="POST">
-  Name: <input type="text" name="name" />
+  Name: <input  class="nes-input" type="text" name="name" required/>
+
   <br>
-  <input type="submit" value="Add item" />
+  <br>
+
+  <input  class="nes-btn is-primary" type="submit" value="Add item" />
+  
 </form>
+
 <br>
+
 <h3>Exisiting list items</h2>
 
 <% if (it.items == 0 ) { %>
 
-<h5>No items in the lists yet.</h5>
+    <h5>No items in the lists yet.</h5>
 
 <% } else { %>
 
+  <div class="lists">
+    <ul class="nes-list is-circle">
+            <% it.items.forEach((item) => { %>
+            
+                <% if (item.collected == true ) { %>
 
-<ul>
-<% it.items.forEach((item) => { %>
-  <li>
-   <%= item.name %>
-  </li>
-<% }); %>
-</ul>
+                        <li>
+                            <del><%= item.name %></del>
+                        </li>
 
+                <% } else { %>
 
+                            <li>
+                                <%= item.name %>
+                            </li>
+
+                                <form action = "/lists/<%= it.list.id %>/items/<%= item.id %>" method="POST">
+                                <input  class="nes-btn is-success" type="submit" value="Mark collected!" />
+                                </form>
+                <% } %>
+            <% }); %>
+        </ul>
+    </div>
 <% } %>
+
+</div>

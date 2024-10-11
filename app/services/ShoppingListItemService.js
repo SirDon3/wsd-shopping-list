@@ -1,11 +1,15 @@
 import { sql } from "../database/database.js";
 
-const findShoppingListIteams = async (ListId) => {
-  return await sql`SELECT * FROM shopping_list_items WHERE shopping_list_id = ${ListId}`;
+const findShoppingListIteams = async (listId) => {
+  return await sql`SELECT * FROM shopping_list_items WHERE shopping_list_id = ${listId}`;
 };
 
-const create = async (ListId, name) => {
-  await sql`INSERT INTO shopping_list_items (shopping_list_id, name) VALUES (${ListId}, ${name})`;
+const create = async (listId, name) => {
+  await sql`INSERT INTO shopping_list_items (shopping_list_id, name) VALUES (${listId}, ${name})`;
 };
 
-export { create, findShoppingListIteams };
+const collectIteam = async (iteamId) => {
+  await sql`UPDATE shopping_list_items SET collected = true WHERE id = ${iteamId}`;
+};
+
+export { collectIteam, create, findShoppingListIteams };

@@ -1,23 +1,38 @@
 <% layout("./layouts/layout.eta") %>
 
+<div class="nes-container is-rounded">
+
 <center><h1>Shared shopping lists</h1></center>
 
+<h3><a href="/lists">Lists</a></h3>
 
-<h3> <a href="/lists">Lists</a></h3>
-
-
+<br>
 
 <% if (it.lists == 0 ) { %>
 
-<h4>No shopping lists yet.</h4>
+<br>
+    <h4>No shopping lists yet.</h4>
 
 <% } else { %>
-
-
-<ul>
-  <li>Shoping lists: <%= it.lists %></li>
-   <li>Shoping list iteams: <%= it.iteams %> </li>
-</ul>
-
-
+    <div class="lists">
+      <ul class="nes-list is-circle">
+        <li>Shoping lists: <%= it.lists %></li>
+        <br>
+        <li>Shoping list iteams: <%= it.iteams %> </li>
+      </ul>
+    </div>
 <% } %>
+</div>
+
+<br>
+
+<section class="nes-container">
+  <section class="message-list">
+      	<i class="nes-mario centerA"></i>
+	    <a href="https://www.linkedin.com/in/mohamed-shadhan-60204a203/">
+        <button type="button" class="nes-btn is-success centerA">Connect With Me</button></a>
+        <div class="social">
+            <i class="nes-icon linkedin is-large"></i>
+        </div>
+  </section>
+</section>

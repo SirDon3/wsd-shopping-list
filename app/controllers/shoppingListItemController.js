@@ -1,4 +1,3 @@
-import { renderFile } from "https://deno.land/x/eta@v2.2.0/mod.ts";
 import * as requestUtils from "../utils/requestUtils.js";
 import * as ShoppingListItemService from "../services/ShoppingListItemService.js";
 
@@ -13,4 +12,13 @@ const addItem = async (request) => {
   return requestUtils.redirectTo(`/lists/${urlPart[2]}`);
 };
 
-export { addItem };
+const collectIteam = async (request) => {
+  const url = new URL(request.url);
+  const urlPart = url.pathname.split("/");
+
+  await ShoppingListItemService.collectIteam(urlPart[4]);
+
+  return requestUtils.redirectTo(`/lists/${urlPart[2]}`);
+};
+
+export { addItem, collectIteam };

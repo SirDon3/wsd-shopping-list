@@ -3,7 +3,6 @@ import { configure } from "./app/deps.js";
 import * as shoppingListController from "./app/controllers/shoppingListController.js";
 import * as mainStatisticController from "./app/controllers/mainStatisticController.js";
 import * as shoppingListItemController from "./app/controllers/shoppingListItemController.js";
-import * as requestUtils from "./app/utils/requestUtils.js";
 
 configure({
   views: `${Deno.cwd()}/views/`,
@@ -20,6 +19,10 @@ const handleRequest = async (request) => {
     return await shoppingListController.viewLists(request);
   } else if (url.pathname.match("/lists/[0-9]+") && request.method === "GET") {
     return await shoppingListController.viewList(request);
+  } else if (
+    url.pathname.match("lists/[0-9]+/items/[0-9]+") && request.method === "POST"
+  ) {
+    return await shoppingListItemController.collectIteam(request);
   } else if (
     url.pathname.match("lists/[0-9]+/items") && request.method === "POST"
   ) {

@@ -16,7 +16,7 @@ const addList = async (request) => {
   return requestUtils.redirectTo("/lists");
 };
 
-const viewLists = async (request) => {
+const viewLists = async () => {
   const data = {
     lists: await shoppingListService.findAllActiveShoppingLists(),
   };

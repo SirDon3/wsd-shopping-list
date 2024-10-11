@@ -1,32 +1,56 @@
 <% layout("./layouts/layout.eta") %>
 
-<center><h1> <a href="/">Main page </a></h1></center>
 
-<h2>Shoping lists</h1>
+<div class="nes-container is-rounded" >
+
+<center><h1> <a href="/">Main page </a></h1></center>
+<br>
+
+<center><h2>Shoping lists</h1></center>
+<br>
+<br>
+<br>
 
 <h3>Add a shopping list</h2>
+
 <br>
+<br>
+
 <form action="/lists" method="POST">
-  Name: <input type="text" name="name" />
-  <br>
-  <input type="submit" value="Create shopping list!" />
+  Name: <input class="nes-input" type="text" name="name" required/>
+  <br><br>
+  <input type="submit" class="nes-btn is-primary" value="Create shopping list!" />
 </form>
+
 <br>
+
 <h3>Active shoping lists</h2>
+
+<% if (it.lists == 0 ) { %>
+
 <br>
 
-<ul>
-<% it.lists.forEach((list) => { %>
-  <li>
-  
-    <a href="/lists/<%= list.id %>"><%= list.name %></a>
-    <br><br>
-    <form action = "/lists/<%= list.id %>/deactivate" method="POST">
- 
-  <input type="submit" value="Deactivate list!" />
-</form>
-<br>
-  </li>
-<% }); %>
-</ul>
+  <h5>No active lists yet.</h5>
 
+<% } else { %>
+
+    <div class="lists">
+      <ul class="nes-list is-circle">
+      <% it.lists.forEach((list) => { %>
+          <li>
+          <center>
+            <a href="/lists/<%= list.id %>"><%= list.name %></a>
+            <br><br>
+            <form action = "/lists/<%= list.id %>/deactivate" method="POST">
+        
+          <input  class="nes-btn is-warning" type="submit" value="Deactivate list!" />
+        </form>
+        </center>
+        <br>
+          </li>
+      <% }); %>
+    </ul>
+  </div>
+<% } %>
+
+</div>

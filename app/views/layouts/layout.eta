@@ -1,17 +1,51 @@
 <!doctype html>
 <html lang="en">
   <head>
+
     <title>Task application!</title>
-    <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.1/dist/paper.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
+
+    <style>
+
+        #maincontent {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        } 
+            .nes-mario {
+            display: block;
+        }
+
+        .social {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social i {
+            margin: 10px;
+        }
+        .centerA {
+            margin: 0 auto !important;
+            display: block !important;
+        }
+  </style>
+
   </head>
+
   <body>
-  <br>
-    <div class="container paper">
+
+    <div id="maincontent" class="nes-container ">
       <%~ it.body %>
     </div>
+
     <br>
+
   </body>
+  
 </html>
