@@ -10,3 +10,4 @@ CREATE TABLE shopping_list_items (
   name TEXT NOT NULL,
   collected BOOLEAN DEFAULT FALSE
 );
+
