@@ -55,6 +55,8 @@
                             <form action = "/lists/<%= it.list.id %>/items/<%= item.id %>" method="POST">
                                 <input  class="nes-btn is-success" type="submit" value="Mark collected!" />
                             </form>
+                            
+                            <br>
                 <% } %>
             <% }); %>
         </ul>
