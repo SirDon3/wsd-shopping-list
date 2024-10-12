@@ -4,6 +4,7 @@
 
 <center><h1> <a href="/lists">Shopping lists</a></h1></center>
 
+<br>
 
 <h2><%= it.list.name %></h2>
 
@@ -48,10 +49,12 @@
                             <li>
                                 <%= item.name %>
                             </li>
+                            
+                            <br>
 
-                                <form action = "/lists/<%= it.list.id %>/items/<%= item.id %>" method="POST">
+                            <form action = "/lists/<%= it.list.id %>/items/<%= item.id %>" method="POST">
                                 <input  class="nes-btn is-success" type="submit" value="Mark collected!" />
-                                </form>
+                            </form>
                 <% } %>
             <% }); %>
         </ul>
