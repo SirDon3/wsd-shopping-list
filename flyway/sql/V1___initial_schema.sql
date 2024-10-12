@@ -11,3 +11,4 @@ CREATE TABLE shopping_list_items (
   collected BOOLEAN DEFAULT FALSE
 );
 
+INSERT INTO shopping_lists (name) VALUES ("Lunch");
