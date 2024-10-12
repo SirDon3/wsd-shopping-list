@@ -12,7 +12,7 @@ const handleRequest = async (request) => {
   const url = new URL(request.url);
 
   if (url.pathname === "/" && request.method === "GET") {
-    return await mainStatisticController.viewMain(request);
+    return await mainStatisticController.viewList(request);
   } else if (url.pathname === "/lists" && request.method === "POST") {
     return await shoppingListController.addList(request);
   } else if (url.pathname === "/lists" && request.method === "GET") {
